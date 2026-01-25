@@ -46,6 +46,12 @@ func PolecatSessionName(rig, name string) string {
 	return fmt.Sprintf("%s%s-%s", Prefix, rig, name)
 }
 
+// NarratorSessionName returns the session name for the Narrator agent.
+// One narrator per machine - multi-town requires containers/VMs for isolation.
+func NarratorSessionName() string {
+	return HQPrefix + "narrator"
+}
+
 // PropulsionNudge generates the GUPP (Gas Town Universal Propulsion Principle) nudge.
 // This is sent after the beacon to trigger autonomous work execution.
 // The agent receives this as user input, triggering the propulsion principle:
@@ -76,6 +82,8 @@ func PropulsionNudgeForRole(role, workDir string) string {
 		msg = "Run `gt prime` to check patrol status and begin heartbeat cycle."
 	case "mayor":
 		msg = "Run `gt prime` to check mail and begin coordination."
+	case "narrator":
+		msg = "Run `gt prime` to check status and begin narration."
 	default:
 		msg = PropulsionNudge()
 	}
