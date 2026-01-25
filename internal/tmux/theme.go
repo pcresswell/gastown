@@ -40,6 +40,12 @@ func DeaconTheme() Theme {
 	return Theme{Name: "deacon", BG: "#2d1f3d", FG: "#c0b0d0"}
 }
 
+// NarratorTheme returns the special theme for the Narrator session.
+// Teal/cream - scholarly, distinct from Mayor and Deacon.
+func NarratorTheme() Theme {
+	return Theme{Name: "narrator", BG: "#1a4a4a", FG: "#f0e6d2"}
+}
+
 // GetThemeByName finds a theme by name from the default palette.
 // Returns nil if not found.
 func GetThemeByName(name string) *Theme {
